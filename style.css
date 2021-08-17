@@ -1,0 +1,13 @@
+* {
+    font-family: Arial;
+    color:white;
+}
+.center_container{
+    width: 100%;
+    text-align: center;
+}
+body {
+    background-image: url("bg4.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}

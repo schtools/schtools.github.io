@@ -1,0 +1,4 @@
+# I don't want this to be easily found
+# Disabled these for now
+#User-agent: *
+#Disallow: /

@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>ContentKeeper</title>
+	</head>
+	<body bgcolor="#A02E5F" text="White" link="Lime" vlink="Aqua">
+		<script>
+			let ckappliance = "https://192.168.55.243/"
+			function updateUrl() {
+				let inputText = document.getElementById("url_input").value;
+				document.getElementById("url_disp").innerHTML = '<a href="' + inputText + ':443?ck_sni"><b>' + inputText + '</b></a>'
+				document.getElementById("url_form").value = inputText;
+			}
+			function updateAppliance() {
+				ckappliance = document.getElementById("appliance_url").value;
+				document.getElementById("post_url").action = ckappliance + "/cgi-bin/ck/re_u.cgi";
+			}
+			function changeDiv() {
+				daDiv = document.getElementById("meDiv");
+				hideButton = document.getElementById("hideButton");
+				switch(daDiv.style.display) {
+					case "none":
+						daDiv.style.display = "block";
+						hideButton.innerHTML = "Hide";
+						break;
+					case "block":
+						daDiv.style.display = "none";
+						hideButton.innerHTML = "";
+						break;
+					default:
+						daDiv.style.display = "block";
+						break;
+				}
+			}
+		</script>
+		<button onClick="changeDiv();" id="hideButton">Hide</button>
+		<center>
+			<br>
+			<h1>ContentKeeper<br>Non-Managed Site</h1>
+			Click URL below to continue to selected site.
+			<table border="1" cellspacing="0">
+				<tbody>
+					<tr>
+						<td>URL</td>
+						<td id="url_disp"><a href="example.com"><b>example.com</b></a></td>
+					</tr>
+					<tr>
+						<td>Username</td>
+						<td><b>you/place</b></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="meDiv" style="display: block;">
+				<p style="font-family: Comic Sans MS;">Type a url below to change what you want to classify it to:</p>
+				<input type="text", id="url_input">
+				<button onClick="updateUrl();">Change URL</button>
+
+				<p style="font-family: Comic Sans MS;">If your appliance is not https://192.168.55.243/, change it here:</p>
+				<input type="text", id="appliance_url" value="https://192.168.55.243/">
+				<button onClick="updateAppliance();">Change Appliance</button>
+				<br>
+			</div>
+			<br>
+			Click the <b>Classify URL</b> button if you wish to classify this site.
+			<form action="https://192.168.55.243/cgi-bin/ck/re_u.cgi" method="POST" target="_blank" id="post_url">
+				<input type="hidden" name="URL_AREA" value="example.com" id="url_form">
+				<input type="hidden" name="USER" value="">
+				<input type="hidden" name="SEL_1" value="29">
+				<input type="hidden" name="URL_1" value="example.com" id="url_form">
+				<input type="hidden" name="CAT_1" value="-1">
+				<input type="hidden" name="DAT_1" value="n/a">
+				<input type="hidden" name="autocat" value="29">
+				<input type="hidden" name="SUBMIT_SITE_THIRD" value="Submit Above Sites">
+				<input type="hidden" name="NUM_SUBMIT_URL" value="1">
+				<input type="submit" value="Classify URL">
+			</form>
+			<b>Note:</b> To Classify the above URL you will need access to<br>
+			the ContentKeeper Appliance from this browser.
+		</center>
+	</body>
+</html>
