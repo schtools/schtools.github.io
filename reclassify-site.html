@@ -9,6 +9,7 @@
 				let inputText = document.getElementById("url_input").value;
 				document.getElementById("url_disp").innerHTML = '<a href="' + inputText + ':443?ck_sni"><b>' + inputText + '</b></a>'
 				document.getElementById("url_form").value = inputText;
+				document.getElementById("url_form2").value = inputText;
 			}
 			function updateAppliance() {
 				ckappliance = document.getElementById("appliance_url").value;
@@ -16,15 +17,12 @@
 			}
 			function changeDiv() {
 				daDiv = document.getElementById("meDiv");
-				hideButton = document.getElementById("hideButton");
 				switch(daDiv.style.display) {
 					case "none":
 						daDiv.style.display = "block";
-						hideButton.innerHTML = "Hide";
 						break;
 					case "block":
 						daDiv.style.display = "none";
-						hideButton.innerHTML = "";
 						break;
 					default:
 						daDiv.style.display = "block";
@@ -32,7 +30,7 @@
 				}
 			}
 		</script>
-		<button onClick="changeDiv();" id="hideButton">Hide</button>
+		<button onClick="changeDiv();"> </button>
 		<center>
 			<br>
 			<h1>ContentKeeper<br>Non-Managed Site</h1>
@@ -65,7 +63,7 @@
 				<input type="hidden" name="URL_AREA" value="example.com" id="url_form">
 				<input type="hidden" name="USER" value="">
 				<input type="hidden" name="SEL_1" value="29">
-				<input type="hidden" name="URL_1" value="example.com" id="url_form">
+				<input type="hidden" name="URL_1" value="example.com" id="url_form2">
 				<input type="hidden" name="CAT_1" value="-1">
 				<input type="hidden" name="DAT_1" value="n/a">
 				<input type="hidden" name="autocat" value="29">
